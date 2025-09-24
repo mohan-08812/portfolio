@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0ea5e9;
+  --secondary: #f97316;
+  --dark: #121212;
+  --light: #f8fafc;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: scroll;
+  overscroll-behavior-y: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-light;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-dark;
+}
+
+/* Custom utility classes */
+@layer components {
+  .neon-glow {
+    text-shadow: 0 0 5px theme('colors.primary.DEFAULT'), 
+                 0 0 20px theme('colors.primary.DEFAULT');
+  }
+  
+  .neon-box {
+    box-shadow: 0 0 5px theme('colors.primary.DEFAULT'),
+                0 0 15px theme('colors.primary.DEFAULT');
+  }
+  
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-10 gradient-text;
+  }
+  
+  .card {
+    @apply bg-dark-light rounded-xl p-6 transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .btn {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary hover:bg-primary-dark text-white;
+  }
+  
+  .btn-outline {
+    @apply btn border-2 border-primary text-primary hover:bg-primary hover:text-white;
+  }
+  
+  .input-field {
+    @apply w-full bg-dark-lighter border-2 border-dark-lighter focus:border-primary rounded-lg px-4 py-3 text-light outline-none transition-all duration-300;
+  }
+}
